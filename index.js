@@ -11,6 +11,7 @@ const acses = function() {
   let defaultSender
   let supportRecipient
   let securityRecipient
+  let defaultBlockTime = 60 // used for support and security
 
   const init = function(options) {
     ses = new aws.SES({
@@ -21,11 +22,14 @@ const acses = function() {
     if (_.get(options, 'redis')) {
       redis = _.get(options, 'redis')
     }
-
+    if (_.get(options, 'defaultBlockTime')) {
+      defaultBlockTime = _.get(options, 'defaultBlockTime')
+    }
     // helper
     if (_.get(options, 'defaultSender') && prepareEmailAddress(_.get(options, 'defaultSender'))) defaultSender = _.get(options, 'defaultSender')
     if (_.get(options, 'supportRecipient') && prepareEmailAddress(_.get(options, 'supportRecipient'))) supportRecipient = _.get(options, 'supportRecipient')
     if (_.get(options, 'securityRecipient') && prepareEmailAddress(_.get(options, 'securityRecipient'))) securityRecipient = _.get(options, 'securityRecipient')
+
   }
 
   /**
@@ -141,7 +145,7 @@ const acses = function() {
       to: [securityRecipient],
       subject: params.subject,
       text: params.text,
-      blockTime: _.get(params, 'blocktime', 60)
+      blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
     sendEmail(message, cb)
   }
@@ -159,7 +163,7 @@ const acses = function() {
       to: [supportRecipient],
       subject: params.subject,
       text: params.text,
-      blockTime: _.get(params, 'blocktime', 60)
+      blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
     sendEmail(message, cb)
   }
