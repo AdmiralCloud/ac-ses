@@ -1,0 +1,44 @@
+{
+  "name": "ac-ses",
+  "author": "Mark Poepping (https://www.mmpro.de)",
+  "license": "MIT",
+  "repository": "mmpro/ac-ses",
+  "version": "0.0.0",
+  "dependencies": {
+    "async": "^2.6.1",
+    "aws-sdk": "^2.250.1",
+    "lodash": "^4.x"
+  },
+  "devDependencies": {
+    "ac-conventional-changelog-template": "github:mmpro/ac-conventional-changelog-template",
+    "corp-semantic-release": "github:mmpro/corp-semantic-release",
+    "cz-customizable": "github:mmpro/cz-customizable",
+    "eslint": "^4.x",
+    "eslint-config-standard": "^11.x",
+    "eslint-plugin-import": "^2.x",
+    "eslint-plugin-node": "^6.x",
+    "eslint-plugin-promise": "^3.x",
+    "eslint-plugin-standard": "^3.x",
+    "expect": "^22.x",
+    "ioredis": "^3.2.2",
+    "mocha": "^5.x",
+    "mocha-jenkins-reporter": "github:mmpro/mocha-jenkins-reporter",
+    "mocha-junit-reporter": "^1.x",
+    "mocha-multi-reporters": "^1.x"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "test-jenkins": "JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter --reporter-options junit_report_name='ByteConverter'"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".czConfig.js"
+    }
+  }
+}
