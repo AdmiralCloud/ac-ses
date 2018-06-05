@@ -11,6 +11,7 @@ const acses = function() {
   let defaultSender
   let supportRecipient
   let securityRecipient
+  let operationsRecipient
   let defaultBlockTime = 60 // used for support and security
 
   const init = function(options) {
@@ -29,7 +30,7 @@ const acses = function() {
     if (_.get(options, 'defaultSender') && prepareEmailAddress(_.get(options, 'defaultSender'))) defaultSender = _.get(options, 'defaultSender')
     if (_.get(options, 'supportRecipient') && prepareEmailAddress(_.get(options, 'supportRecipient'))) supportRecipient = _.get(options, 'supportRecipient')
     if (_.get(options, 'securityRecipient') && prepareEmailAddress(_.get(options, 'securityRecipient'))) securityRecipient = _.get(options, 'securityRecipient')
-
+    if (_.get(options, 'operationsRecipient') && prepareEmailAddress(_.get(options, 'operationsRecipient'))) operationsRecipient = _.get(options, 'operationsRecipient')
   }
 
   /**
@@ -168,11 +169,30 @@ const acses = function() {
     sendEmail(message, cb)
   }
 
+  /**
+   * Use as as shortcut to inform operations - no need for from or to, this is already pre-defined
+   * Other than that, it works similar to sendEmail
+   * Differences: no HTML to improve delivery
+   * @param {*} params
+   * @param {*} cb
+   */
+  const informOperations = function(params, cb) {
+    if (!operationsRecipient) return cb({ message: 'acses.informSecurity - operationsRecipient' })
+    let message = {
+      to: [operationsRecipient],
+      subject: params.subject,
+      text: params.text,
+      blockTime: _.get(params, 'blocktime', defaultBlockTime)
+    }
+    sendEmail(message, cb)
+  }
+
   return {
     init,
     sendEmail,
     informSecurity,
-    informSupport
+    informSupport,
+    informOperations
   }
 }
 
