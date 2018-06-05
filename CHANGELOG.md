@@ -1,3 +1,14 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/mmpro/ac-ses/compare/v1.0.2...v1.0.3) (2018-06-05 08:09)
+
+
+### Bug Fixes
+
+* **AC SES:** Allow function call without callback | MP ([ef9289c](https://github.com/mmpro/ac-ses/commit/ef9289c))    
+  Allow to call the functions without callback
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/mmpro/ac-ses/compare/v1.0.1...v1.0.2) (2018-06-05 07:32)
 
