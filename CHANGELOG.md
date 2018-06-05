@@ -1,3 +1,15 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/mmpro/ac-ses/compare/v1.0.1...v1.0.2) (2018-06-05 07:32)
+
+
+### Bug Fixes
+
+* **AC SES:** Add operations recipient | MÜ ([803bcec](https://github.com/mmpro/ac-ses/commit/803bcec))    
+  You can now use informOperations with a predefined operations email address to send and email to
+this group.
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/mmpro/ac-ses/compare/v1.0.0...v1.0.1) (2018-06-02 10:11)
 
