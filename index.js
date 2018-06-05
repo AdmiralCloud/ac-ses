@@ -148,7 +148,8 @@ const acses = function() {
       text: params.text,
       blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
-    sendEmail(message, cb)
+    if (!_.isFunction(cb)) sendEmail(message, cb)
+    else sendEmail(message)
   }
 
   /**
@@ -159,14 +160,15 @@ const acses = function() {
    * @param {*} cb
    */
   const informSupport = function(params, cb) {
-    if (!supportRecipient) return cb({ message: 'acses.informSecurity - supportRecipient' })
+    if (!supportRecipient) return cb({ message: 'acses.informSecurity - supportRecipient_notSet' })
     let message = {
       to: [supportRecipient],
       subject: params.subject,
       text: params.text,
       blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
-    sendEmail(message, cb)
+    if (!_.isFunction(cb)) sendEmail(message, cb)
+    else sendEmail(message)
   }
 
   /**
@@ -177,14 +179,15 @@ const acses = function() {
    * @param {*} cb
    */
   const informOperations = function(params, cb) {
-    if (!operationsRecipient) return cb({ message: 'acses.informSecurity - operationsRecipient' })
+    if (!operationsRecipient) return cb({ message: 'acses.informSecurity - operationsRecipient_notSet' })
     let message = {
       to: [operationsRecipient],
       subject: params.subject,
       text: params.text,
       blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
-    sendEmail(message, cb)
+    if (!_.isFunction(cb)) sendEmail(message, cb)
+    else sendEmail(message)
   }
 
   return {
