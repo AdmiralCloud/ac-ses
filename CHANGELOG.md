@@ -1,3 +1,14 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/mmpro/ac-ses/compare/v1.0.3...v1.0.4) (2018-07-28 13:10)
+
+
+### Bug Fixes
+
+* **AC SES:** Fixed an issue with missing callbacks | MP ([f5cfcb7](https://github.com/mmpro/ac-ses/commit/f5cfcb7))    
+  If callback is a function use it as callback!
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/mmpro/ac-ses/compare/v1.0.2...v1.0.3) (2018-06-05 08:09)
 
