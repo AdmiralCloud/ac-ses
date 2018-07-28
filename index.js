@@ -148,7 +148,7 @@ const acses = function() {
       text: params.text,
       blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
-    if (!_.isFunction(cb)) sendEmail(message, cb)
+    if (_.isFunction(cb)) sendEmail(message, cb)
     else sendEmail(message)
   }
 
@@ -167,7 +167,7 @@ const acses = function() {
       text: params.text,
       blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
-    if (!_.isFunction(cb)) sendEmail(message, cb)
+    if (_.isFunction(cb)) sendEmail(message, cb)
     else sendEmail(message)
   }
 
@@ -186,7 +186,7 @@ const acses = function() {
       text: params.text,
       blockTime: _.get(params, 'blocktime', defaultBlockTime)
     }
-    if (!_.isFunction(cb)) sendEmail(message, cb)
+    if (_.isFunction(cb)) sendEmail(message, cb)
     else sendEmail(message)
   }
 
