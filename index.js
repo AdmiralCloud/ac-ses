@@ -3,6 +3,7 @@ const async = require('async')
 const aws = require('aws-sdk')
 
 const crypto = require('crypto')
+const uuidV4 = require('uuid/v4')
 
 const acses = function() {
   let ses
@@ -13,6 +14,7 @@ const acses = function() {
   let securityRecipient
   let operationsRecipient
   let defaultBlockTime = 60 // used for support and security
+  let testMode // if true, no email is sent
 
   const init = function(options) {
     ses = new aws.SES({
@@ -26,6 +28,10 @@ const acses = function() {
     if (_.get(options, 'defaultBlockTime')) {
       defaultBlockTime = _.get(options, 'defaultBlockTime')
     }
+    if (_.get(options, 'testMode')) {
+      testMode = _.get(options, 'testMode')
+    }
+
     // helper
     if (_.get(options, 'defaultSender') && prepareEmailAddress(_.get(options, 'defaultSender'))) defaultSender = _.get(options, 'defaultSender')
     if (_.get(options, 'supportRecipient') && prepareEmailAddress(_.get(options, 'supportRecipient'))) supportRecipient = _.get(options, 'supportRecipient')
@@ -122,10 +128,21 @@ const acses = function() {
         })
       },
       sendEmail: function(done) {
+        if (testMode) {
+          // return fake response, but do not send message
+          let mockResponse = {
+            ResponseMetadata: {
+              RequestId: uuidV4()
+            },
+            MessageId: Math.random().toString(36) + '-' + uuidV4() + '-000000',
+            testMode: true
+          }
+          return done(null, mockResponse)
+        }
         ses.sendEmail(sesParams, done)
       }
     }, function allDone(err, result) {
-      if (err && err === 423) err = null // this is not an error, just blocke
+      if (err && err === 423) err = null // this is not an error, just blocked
       if (_.isFunction(cb)) {
         return cb(err, _.get(result, 'sendEmail'))
       }
