@@ -1,3 +1,14 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/mmpro/ac-ses/compare/v1.0.4...v1.1.0) (2018-08-05 06:15)
+
+
+### Features
+
+* **AC SES:** Add testMode | MP ([13f8555](https://github.com/mmpro/ac-ses/commit/13f8555))    
+  If testMode is activated, no email is sent, only a mock response is created and returned.
+
+
+
 <a name="1.0.4"></a>
 ## [1.0.4](https://github.com/mmpro/ac-ses/compare/v1.0.3...v1.0.4) (2018-07-28 13:10)
 
