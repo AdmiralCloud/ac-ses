@@ -5,6 +5,9 @@ const aws = require('aws-sdk')
 const crypto = require('crypto')
 const uuidV4 = require('uuid/v4')
 
+const quotedPrintable = require('quoted-printable')
+const utf8 = require('utf8')
+
 const acses = function() {
   let ses
   let redis // only required if blockTime should be used - use init to set a redis instance from your main app
@@ -66,6 +69,8 @@ const acses = function() {
    * @param subject STRING
    * @param text STRING Text message
    *
+   * @param attachments ARRAY Optional array of objects with properties: filename, content (as base64) and encoding as 'base64'
+   *
    * @param blockTime INT OPTIONAL If set, you cannot send an email to the same recipient for the blockTime (helpful for warning messages - you don't want them every second!)
    * @param redisKey STRING OPTIONAL You can use your own redisKey for the blockTime feature, or let this app create an MD5 hash from the parameters
    *
@@ -77,11 +82,14 @@ const acses = function() {
     const fieldCheck = [
       { field: 'from', type: _.isPlainObject, required: true },
       { field: 'to', type: _.isArray, required: true },
+      { field: 'cc', type: _.isArray },
+      { field: 'bcc', type: _.isArray },
       { field: 'subject', type: _.isString, required: true },
       { field: 'text', type: _.isString },
       { field: 'html', type: _.isString },
       // OPTIONS
-      { field: 'ReplyToAddresses', type: _.isArray }
+      { field: 'replyTo', type: _.isArray },
+      { field: 'attachments', type: _.isArray }
     ]
 
     _.some(fieldCheck, (field) => {
@@ -89,37 +97,17 @@ const acses = function() {
       if (_.get(params, field.field) && !field.type(_.get(params, field.field))) return cb({ message: field.field + '_typeInvalid' })
     })
 
-    // John Doe <john.doe@example.com>
-    let toAdresses = _.map(params.to, (to) => {
-      return prepareEmailAddress(to)
-    })
-
-    const sesParams = {
-      Destination: {
-        ToAddresses: toAdresses
-      },
-      Message: {
-        Body: {},
-        Subject: {
-          Charset: 'UTF-8',
-          Data: params.subject
-        }
-      },
-      Source: prepareEmailAddress(params.from)
-    }
-    if (params.text) {
-      _.set(sesParams, 'Message.Body.Text', { Charset: 'UTF-8', Data: params.text })
-    }
-    if (params.html) {
-      _.set(sesParams, 'Message.Body.Html', { Charset: 'UTF-8', Data: params.html })
-    }
-    if (params.ReplyToAddresses) {
-      _.set(sesParams, 'ReplyToAddresses', prepareEmailAddress(params.ReplyToAddresses))
-    }
+    const boundary = uuidV4()
 
     async.series({
-      checkBlockTime: function(done) {
+      checkBlockTime: (done) => {
         if (!redis || !params.blockTime) return done()
+        let sesParams = {
+          from: params.from,
+          to: params.to,
+          subject: params.subject,
+          text: params.text
+        }
         let redisKey = _.get(params, 'redisKey', crypto.createHash('md5').update(JSON.stringify(sesParams)).digest('hex'))
         redis.set(redisKey, 1, 'EX', params.blockTime, 'NX', (err, result) => {
           if (err) return done(err)
@@ -127,7 +115,56 @@ const acses = function() {
           return done(423) // the key is already locked
         })
       },
-      sendEmail: function(done) {
+      sendRawMessage: (done) => {
+        let raw = 'From: ' + prepareEmailAddress(defaultSender) + '\n'
+        // prepare To, Cc, Bcc
+        _.forEach(['to', 'cc', 'bcc'], type => {
+          if (_.size(_.get(params, type))) {
+            let recipients = _.map(_.get(params, type), (recipient) => {
+              return prepareEmailAddress(recipient)
+            })
+            raw += _.upperFirst(type) + ': ' + _.join(recipients, ', ') + '\n'
+          }
+        })
+        if (params.replyTo) {
+          let recipients = _.map(_.get(params, 'replyTo'), (recipient) => {
+            return prepareEmailAddress(recipient)
+          })
+          raw += 'Reply-To: ' + _.join(recipients, ', ') + '\n'
+        }
+
+        raw += 'Subject: ' + params.subject + '\n'
+
+        // announce multipart
+        raw += 'Mime-Version: 1.0\n'
+        raw += 'Content-type: multipart/alternative; boundary="' + boundary + '"\n\n'
+        raw += ' This message is in MIME format. Since your mail reader does not understand this format, some or all of this message may not be legible.\n\n'
+
+        if (params.text) {
+          raw += '--' + boundary + '\nContent-type: text/plain; charset="UTF-8"\nContent-transfer-encoding: quoted-printable\n\n'
+          raw += quotedPrintable.encode(utf8.encode(params.text)) + '\n\n'
+          raw += '--' + boundary + '\n'
+        }
+        if (params.html) {
+          raw += '--' + boundary + '\nContent-type: text/html; charset="UTF-8"\nContent-transfer-encoding: quoted-printable\n\n'
+          raw += quotedPrintable.encode(utf8.encode(params.html)) + '\n\n'
+          raw += '--' + boundary + '\n'
+        }
+        if (params.attachments) {
+          _.forEach(params.attachments, attachment => {
+            raw += '--' + boundary + '\n'
+            raw += 'Content-Disposition: attachment; filename="' + attachment.filename + '"\n'
+            raw += 'Content-type: ' + attachment.contentType + '; name="' + attachment.filename + '"\nContent-transfer-encoding: ' + attachment.encoding + '\n\n'
+            raw += attachment.content + '\n\n'
+            raw += '--' + boundary + '\n'
+          })
+        }
+
+        const rawParams = {
+          RawMessage: { /* required */
+            Data: Buffer.from(raw)
+          }
+        }
         if (testMode) {
           // return fake response, but do not send message
           let mockResponse = {
@@ -139,12 +176,12 @@ const acses = function() {
           }
           return done(null, mockResponse)
         }
-        ses.sendEmail(sesParams, done)
+        ses.sendRawEmail(rawParams, done)
       }
-    }, function allDone(err, result) {
+    }, (err, result) => {
       if (err && err === 423) err = null // this is not an error, just blocked
       if (_.isFunction(cb)) {
-        return cb(err, _.get(result, 'sendEmail'))
+        return cb(err, _.get(result, 'sendRawMessage'))
       }
       if (err) throw new Error(err)
     })
