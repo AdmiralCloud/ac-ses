@@ -1,3 +1,14 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/mmpro/ac-ses/compare/v1.1.0...v1.1.1) (2018-12-31 11:14)
+
+
+### Bug Fixes
+
+* **AC SES:** Use SES sendRaw to support attachments | MP ([64632d8](https://github.com/mmpro/ac-ses/commit/64632d8))    
+  Use SES sendRaw to support attachments
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/mmpro/ac-ses/compare/v1.0.4...v1.1.0) (2018-08-05 06:15)
 
