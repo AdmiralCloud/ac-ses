@@ -6,8 +6,10 @@
   "version": "1.1.0",
   "dependencies": {
     "async": "^2.6.1",
-    "aws-sdk": "^2.282.1",
+    "aws-sdk": "^2.x",
     "lodash": "^4.x",
+    "quoted-printable": "^1.0.1",
+    "utf8": "^3.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
