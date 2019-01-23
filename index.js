@@ -97,7 +97,9 @@ const acses = function() {
       if (_.get(params, field.field) && !field.type(_.get(params, field.field))) return cb({ message: field.field + '_typeInvalid' })
     })
 
-    const boundary = uuidV4()
+    const boundaryMixed = uuidV4()
+    const boundaryAlternative = uuidV4()
+    const encoding = 'quoted-printable'
 
     async.series({
       checkBlockTime: (done) => {
@@ -135,31 +137,34 @@ const acses = function() {
 
         raw += 'Subject: ' + params.subject + '\n'
 
-        // announce multipart
+        // announce multipart/mixed
         raw += 'Mime-Version: 1.0\n'
-        raw += 'Content-type: multipart/alternative; boundary="' + boundary + '"\n\n'
-        raw += ' This message is in MIME format. Since your mail reader does not understand this format, some or all of this message may not be legible.\n\n'
+        raw += 'Content-type: multipart/mixed; boundary="' + boundaryMixed + '"\n\n'
+        raw += 'This message is in MIME format. Since your mail reader does not understand this format, some or all of this message may not be legible.\n\n'
 
+        // text and HTML are multipart/alternatives with their own boundaries
+        raw += '--' + boundaryMixed + '\nContent-Type: multipart/alternative; boundary="' + boundaryAlternative + '"\n\n'
         if (params.text) {
-          raw += '--' + boundary + '\nContent-type: text/plain; charset="UTF-8"\nContent-transfer-encoding: quoted-printable\n\n'
+          raw += '--' + boundaryAlternative + '\nContent-Type: text/plain; charset="UTF-8"\nContent-Transfer-Encoding: ' + encoding + '\n\n'
           raw += quotedPrintable.encode(utf8.encode(params.text)) + '\n\n'
-          raw += '--' + boundary + '\n'
         }
         if (params.html) {
-          raw += '--' + boundary + '\nContent-type: text/html; charset="UTF-8"\nContent-transfer-encoding: quoted-printable\n\n'
+          raw += '--' + boundaryAlternative + '\nContent-Type: text/html; charset="UTF-8"\nContent-Transfer-Encoding: ' + encoding + '\n\n'
           raw += quotedPrintable.encode(utf8.encode(params.html)) + '\n\n'
-          raw += '--' + boundary + '\n'
         }
+        raw += '--' + boundaryAlternative + '--\n\n'
+
         if (params.attachments) {
           _.forEach(params.attachments, attachment => {
-            raw += '--' + boundary + '\n'
+            raw += '--' + boundaryMixed + '\n'
             raw += 'Content-Disposition: attachment; filename="' + attachment.filename + '"\n'
-            raw += 'Content-type: ' + attachment.contentType + '; name="' + attachment.filename + '"\nContent-transfer-encoding: ' + attachment.encoding + '\n\n'
+            raw += 'Content-Type: ' + attachment.contentType + '; name="' + attachment.filename + '"\nContent-Transfer-Encoding: ' + attachment.encoding + '\n\n'
             raw += attachment.content + '\n\n'
-            raw += '--' + boundary + '\n'
           })
+          raw += '--' + boundaryMixed + '--\n'
         }
 
+        console.log(202, raw)
         const rawParams = {
           RawMessage: { /* required */
             Data: Buffer.from(raw)
