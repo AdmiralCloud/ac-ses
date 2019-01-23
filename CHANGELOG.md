@@ -1,3 +1,14 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/mmpro/ac-ses/compare/v1.1.1...v1.1.2) (2019-01-23 10:16)
+
+
+### Bug Fixes
+
+* **AC SES:** Fixed an issue where iOS mail showed "no content" | MP ([d3f190f](https://github.com/mmpro/ac-ses/commit/d3f190f))    
+  Multipart structure was not correct. Now it is fixed and iOS Mail displays the message properly.
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/mmpro/ac-ses/compare/v1.1.0...v1.1.1) (2018-12-31 11:14)
 
