@@ -1,3 +1,14 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/mmpro/ac-ses/compare/v1.1.2...v1.1.3) (2019-01-23 12:10)
+
+
+### Bug Fixes
+
+* **AC SES:** Encoding of multiparts is now a parameter | MP ([e335742](https://github.com/mmpro/ac-ses/commit/e335742))    
+  Encoding of multiparts is now a parameter
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/mmpro/ac-ses/compare/v1.1.1...v1.1.2) (2019-01-23 10:16)
 
