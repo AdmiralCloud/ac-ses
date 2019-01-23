@@ -164,7 +164,6 @@ const acses = function() {
           raw += '--' + boundaryMixed + '--\n'
         }
 
-        console.log(202, raw)
         const rawParams = {
           RawMessage: { /* required */
             Data: Buffer.from(raw)
