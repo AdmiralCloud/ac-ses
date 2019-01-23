@@ -73,10 +73,11 @@ const acses = function() {
    *
    * @param blockTime INT OPTIONAL If set, you cannot send an email to the same recipient for the blockTime (helpful for warning messages - you don't want them every second!)
    * @param redisKey STRING OPTIONAL You can use your own redisKey for the blockTime feature, or let this app create an MD5 hash from the parameters
+   * @param encoding STRING OPTIONAL Encoding for multipart alternative parts - defaults to "quoted-printable"
    *
    * @param {*} cb Optional callback
    */
-  const sendEmail = function(params, cb) {
+  const sendEmail = (params, cb) => {
     if (!_.isObject(ses)) return cb({ message: 'pleaseUseInitBeforeSendingEmail' })
     if (!_.get(params, 'from') && defaultSender) _.set(params, 'from', defaultSender)
     const fieldCheck = [
@@ -99,7 +100,7 @@ const acses = function() {
 
     const boundaryMixed = uuidV4()
     const boundaryAlternative = uuidV4()
-    const encoding = 'quoted-printable'
+    const encoding = _.get(params, 'encoding', 'quoted-printable')
 
     async.series({
       checkBlockTime: (done) => {
