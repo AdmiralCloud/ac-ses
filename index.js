@@ -142,7 +142,7 @@ const acses = function() {
           raw += 'Reply-To: ' + _.join(recipients, ', ') + '\n'
         }
 
-        raw += 'Subject: ' + (useEnvironmentPrefixInSubject ? (environment + ' | ') : '') + params.subject + '\n'
+        raw += 'Subject: ' + (useEnvironmentPrefixInSubject ? (_.toUpper(environment) + ' | ') : '') + params.subject + '\n'
 
         // announce multipart/mixed
         raw += 'Mime-Version: 1.0\n'
