@@ -46,6 +46,8 @@ acses.init({
     secretAccessKey: 'xxx',
     region: 'eu-west-1'  
   },
+  redis: REDISINSTANCE,
+  defaultBlockTime: BLOCKTIME FOR SAME MESSAGE,
   defaultSender: {
     address: 'defaultSender@admiralcloud.com',
     name: 'AdmiralCloud Sender'
@@ -57,7 +59,9 @@ acses.init({
   supportRecipient: {
     address:    address: 'defaultSupportRecipient@admiralcloud.com',
     name: 'AdmiralCloud Support'
-  }
+  },
+  environment: ENVIRONMENT // defaults to proces.env.NODE_ENV,
+  useEnvironmentPrefixInSubject: TRUE|FALSE // defaults to TRUE - prefixes e-mail subject with environment to avoid confusion during development
 })
 
 

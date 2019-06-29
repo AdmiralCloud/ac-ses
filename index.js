@@ -18,6 +18,8 @@ const acses = function() {
   let operationsRecipient
   let defaultBlockTime = 60 // used for support and security
   let testMode // if true, no email is sent
+  let useEnvironmentPrefixInSubject = true
+  let environment = process.env.NODE_ENV || 'development'
 
   const init = function(options) {
     ses = new aws.SES({
@@ -34,6 +36,10 @@ const acses = function() {
     if (_.get(options, 'testMode')) {
       testMode = _.get(options, 'testMode')
     }
+    if (_.get(options, 'environment')) {
+      environment = _.get(options, 'environment')
+    }
+    if (_.has(options, 'useEnvironmentPrefixInSubject')) useEnvironmentPrefixInSubject = _.get(options, 'useEnvironmentPrefixInSubject', false)
 
     // helper
     if (_.get(options, 'defaultSender') && prepareEmailAddress(_.get(options, 'defaultSender'))) defaultSender = _.get(options, 'defaultSender')
@@ -136,7 +142,7 @@ const acses = function() {
           raw += 'Reply-To: ' + _.join(recipients, ', ') + '\n'
         }
 
-        raw += 'Subject: ' + params.subject + '\n'
+        raw += 'Subject: ' + (useEnvironmentPrefixInSubject ? (environment + ' | ') : '') + params.subject + '\n'
 
         // announce multipart/mixed
         raw += 'Mime-Version: 1.0\n'
