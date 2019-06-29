@@ -1,3 +1,14 @@
+<a name="1.1.6"></a>
+## [1.1.6](https://github.com/mmpro/ac-ses/compare/v1.1.5...v1.1.6) (2019-06-29 13:28)
+
+
+### Bug Fixes
+
+* **AC SES:** Show environment in upper case letters | MP ([c1d606d](https://github.com/mmpro/ac-ses/commit/c1d606d))    
+  Show environment in upper case letters when used in subject
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/mmpro/ac-ses/compare/v1.1.4...v1.1.5) (2019-06-29 13:25)
 
