@@ -1,3 +1,14 @@
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/mmpro/ac-ses/compare/v1.1.3...v1.1.4) (2019-06-29 13:12)
+
+
+### Bug Fixes
+
+* **AC SES:** Updated packages and moved to yarn | MP ([a54d213](https://github.com/mmpro/ac-ses/commit/a54d213))    
+  Updated packages and moved to yarn
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/mmpro/ac-ses/compare/v1.1.2...v1.1.3) (2019-01-23 12:10)
 
