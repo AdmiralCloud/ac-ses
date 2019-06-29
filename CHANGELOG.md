@@ -1,3 +1,15 @@
+<a name="1.1.5"></a>
+## [1.1.5](https://github.com/mmpro/ac-ses/compare/v1.1.4...v1.1.5) (2019-06-29 13:25)
+
+
+### Bug Fixes
+
+* **AC SES:** Use environment prefix in subject | MP ([b1f68f7](https://github.com/mmpro/ac-ses/commit/b1f68f7))    
+  To avoid confusion during development, the subject is prefixed (by default) with the environment.
+Use option "useEnvironmentPrefixInSubject" during init to deactivate.
+
+
+
 <a name="1.1.4"></a>
 ## [1.1.4](https://github.com/mmpro/ac-ses/compare/v1.1.3...v1.1.4) (2019-06-29 13:12)
 
