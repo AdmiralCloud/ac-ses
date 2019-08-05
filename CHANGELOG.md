@@ -1,3 +1,14 @@
+<a name="1.1.7"></a>
+## [1.1.7](https://github.com/mmpro/ac-ses/compare/v1.1.6...v1.1.7) (2019-08-05 07:37)
+
+
+### Bug Fixes
+
+* **AC SES:** Lint fix and package update | MP ([90b2340](https://github.com/mmpro/ac-ses/commit/90b2340))    
+  Lint fix and package update
+
+
+
 <a name="1.1.6"></a>
 ## [1.1.6](https://github.com/mmpro/ac-ses/compare/v1.1.5...v1.1.6) (2019-06-29 13:28)
 
