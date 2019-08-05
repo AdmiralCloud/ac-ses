@@ -14,7 +14,7 @@ const testConfig = require('./testConfig.js')
 describe('CHECKING ERRORS', function () {
   it('Send email without init', function(done) {
     let params = testConfig.email
-    acses.sendEmail(params, (err, result) => {
+    acses.sendEmail(params, (err) => {
       expect(err).toEqual({ message: 'pleaseUseInitBeforeSendingEmail' })
       return done()
     })

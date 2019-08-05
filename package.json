@@ -7,28 +7,22 @@
   "version": "1.1.6",
   "dependencies": {
     "async": "^3.1.0",
-    "aws-sdk": "^2.392.0",
-    "lodash": "^4.17.11",
+    "aws-sdk": "^2.503.0",
+    "lodash": "^4.17.15",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "ac-conventional-changelog-template": "github:mmpro/ac-conventional-changelog-template",
-    "corp-semantic-release": "github:mmpro/corp-semantic-release",
-    "cz-customizable": "github:mmpro/cz-customizable",
-    "eslint": "^6.0.1",
-    "eslint-config-standard": "^12.x",
-    "eslint-plugin-import": "^2.15.0",
-    "eslint-plugin-node": "^9.x",
-    "eslint-plugin-promise": "^4.x",
-    "eslint-plugin-standard": "^4.x",
+    "ac-conventional-changelog-template": "git+https://github.com/mmpro/ac-conventional-changelog-template.git",
+    "corp-semantic-release": "git+https://github.com/mmpro/corp-semantic-release.git",
+    "cz-customizable": "git+https://github.com/mmpro/cz-customizable.git",
+    "eslint": "6.x",
     "expect": "^24.x",
-    "ioredis": "^4.x",
-    "mocha": "^6.x",
+    "ioredis": "^4.14.x",
+    "mocha": "^6.2.x",
     "mocha-jenkins-reporter": "github:mmpro/mocha-jenkins-reporter",
-    "mocha-junit-reporter": "^1.18.0",
-    "mocha-multi-reporters": "^1.x"
+    "mocha-junit-reporter": "^1.23.x"
   },
   "scripts": {
     "test": "mocha --reporter spec",
