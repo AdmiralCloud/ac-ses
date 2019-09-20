@@ -7,11 +7,11 @@
   "version": "1.1.7",
   "dependencies": {
     "async": "^3.1.0",
-    "aws-sdk": "^2.503.0",
+    "aws-sdk": "^2.532.0",
     "lodash": "^4.17.15",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "ac-conventional-changelog-template": "git+https://github.com/mmpro/ac-conventional-changelog-template.git",
