@@ -18,8 +18,8 @@ const acses = function() {
   let operationsRecipient
   let defaultBlockTime = 60 // used for support and security
   let testMode // if true, no email is sent
-  let useEnvironmentPrefixInSubject = true
   let environment = process.env.NODE_ENV || 'development'
+  let useEnvironmentPrefixInSubject = environment !== 'production'
 
   const init = function(options) {
     ses = new aws.SES({
