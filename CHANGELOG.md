@@ -1,3 +1,14 @@
+<a name="1.1.8"></a>
+## [1.1.8](https://github.com/mmpro/ac-ses/compare/v1.1.7...v1.1.8) (2019-09-20 06:36)
+
+
+### Bug Fixes
+
+* **AC SES:** Do not prefix subjects in production environment | MP ([777c1ef](https://github.com/mmpro/ac-ses/commit/777c1ef))    
+  Do not prefix subjects in production environment
+
+
+
 <a name="1.1.7"></a>
 ## [1.1.7](https://github.com/mmpro/ac-ses/compare/v1.1.6...v1.1.7) (2019-08-05 07:37)
 
