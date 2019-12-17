@@ -1,3 +1,14 @@
+<a name="1.1.9"></a>
+## [1.1.9](https://github.com/mmpro/ac-ses/compare/v1.1.8...v1.1.9) (2019-12-17 09:49)
+
+
+### Bug Fixes
+
+* **AC SES:** Make sure to use "from" parameter if set | MP ([b21eb353b296c9ef7e6d45e1c2fb645524698f67](https://github.com/mmpro/ac-ses/commit/b21eb353b296c9ef7e6d45e1c2fb645524698f67))    
+  If set, the sender should be taken from "from" parameter and only fallback to default sender.
+
+
+
 <a name="1.1.8"></a>
 ## [1.1.8](https://github.com/mmpro/ac-ses/compare/v1.1.7...v1.1.8) (2019-09-20 06:36)
 
