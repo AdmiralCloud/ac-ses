@@ -125,7 +125,7 @@ const acses = function() {
         })
       },
       sendRawMessage: (done) => {
-        let raw = 'From: ' + prepareEmailAddress(defaultSender) + '\n'
+        let raw = 'From: ' + prepareEmailAddress(_.get(params, 'from')) + '\n'
         // prepare To, Cc, Bcc
         _.forEach(['to', 'cc', 'bcc'], type => {
           if (_.size(_.get(params, type))) {
