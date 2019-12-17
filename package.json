@@ -7,7 +7,7 @@
   "version": "1.1.8",
   "dependencies": {
     "async": "^3.1.0",
-    "aws-sdk": "^2.532.0",
+    "aws-sdk": "^2.591.0",
     "lodash": "^4.17.15",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",

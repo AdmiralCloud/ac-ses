@@ -12,7 +12,7 @@ acses.init({
   aws: {
     accessKeyId: 'xxx',
     secretAccessKey: 'xxx',
-    region: 'eu-west-1'  
+    region: 'eu-central-1'  
   }
 })
 
@@ -44,7 +44,7 @@ acses.init({
   aws: {
     accessKeyId: 'xxx',
     secretAccessKey: 'xxx',
-    region: 'eu-west-1'  
+    region: 'eu-central-1'  
   },
   redis: REDISINSTANCE,
   defaultBlockTime: BLOCKTIME FOR SAME MESSAGE,
