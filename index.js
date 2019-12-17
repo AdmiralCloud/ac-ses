@@ -22,11 +22,12 @@ const acses = function() {
   let useEnvironmentPrefixInSubject = environment !== 'production'
 
   const init = function(options) {
-    ses = new aws.SES({
+    const awsConfig = {
       accessKeyId: _.get(options, 'aws.accessKeyId', process.env.AWS_ACCESS_KEY),
       secretAccessKey: _.get(options, 'aws.secretAccessKey', process.env.AWS_ACCESS_SECRET),
       region: _.get(options, 'aws.region', process.env.AWS_REGION)
-    })
+    }
+    ses = new aws.SES(awsConfig)
     if (_.get(options, 'redis')) {
       redis = _.get(options, 'redis')
     }
@@ -46,6 +47,17 @@ const acses = function() {
     if (_.get(options, 'supportRecipient') && prepareEmailAddress(_.get(options, 'supportRecipient'))) supportRecipient = _.get(options, 'supportRecipient')
     if (_.get(options, 'securityRecipient') && prepareEmailAddress(_.get(options, 'securityRecipient'))) securityRecipient = _.get(options, 'securityRecipient')
     if (_.get(options, 'operationsRecipient') && prepareEmailAddress(_.get(options, 'operationsRecipient'))) operationsRecipient = _.get(options, 'operationsRecipient')
+
+    return {
+      awsConfig: _.pick(awsConfig, ['accessKeyId', 'region']),
+      testMode,
+      defaultBlockTime,
+      environment,
+      defaultSender,
+      supportRecipient,
+      securityRecipient,
+      operationsRecipient
+    }
   }
 
   /**
