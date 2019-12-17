@@ -1,3 +1,14 @@
+<a name="1.1.10"></a>
+## [1.1.10](https://github.com/mmpro/ac-ses/compare/v1.1.9...v1.1.10) (2019-12-17 09:55)
+
+
+### Bug Fixes
+
+* **AC SES:** Init returns an object with the current configuration | MP ([f8c83d17bedf02d2a713f30245ef5814c1b38279](https://github.com/mmpro/ac-ses/commit/f8c83d17bedf02d2a713f30245ef5814c1b38279))    
+  Init returns an object with the current configuration
+
+
+
 <a name="1.1.9"></a>
 ## [1.1.9](https://github.com/mmpro/ac-ses/compare/v1.1.8...v1.1.9) (2019-12-17 09:49)
 
