@@ -1,3 +1,16 @@
+<a name="1.2.0"></a>
+ 
+# [1.2.0](https://github.com/mmpro/ac-ses/compare/v1.1.10..v1.2.0) (2020-05-15 05:48:09)
+
+
+### Feature
+
+* **App:** Force minor version bump | MP | [f96ac7468462da3ddf0e3268760be2d06375a396](https://github.com/mmpro/ac-ses/commit/f96ac7468462da3ddf0e3268760be2d06375a396)    
+After updating a lot of packages we force a minor version bump to show these changes.
+### Chores
+
+* **App:** Updated packages and release management | MP | [3e199aa1948451ecb543774991407ccb6fd0b4be](https://github.com/mmpro/ac-ses/commit/3e199aa1948451ecb543774991407ccb6fd0b4be)    
+Updated several packages. Also this package now uses ac-semantic-release as release manager.
 <a name="1.1.10"></a>
 ## [1.1.10](https://github.com/mmpro/ac-ses/compare/v1.1.9...v1.1.10) (2019-12-17 09:55)
 
