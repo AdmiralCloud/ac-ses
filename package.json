@@ -6,37 +6,26 @@
   "homepage": "https://www.admiralcloud.com",
   "version": "1.1.10",
   "dependencies": {
-    "async": "^3.1.0",
-    "aws-sdk": "^2.591.0",
+    "async": "^3.2.0",
+    "aws-sdk": "^2.677.0",
     "lodash": "^4.17.15",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
-    "uuid": "^3.3.3"
+    "uuid": "^8.x"
   },
   "devDependencies": {
-    "ac-conventional-changelog-template": "git+https://github.com/mmpro/ac-conventional-changelog-template.git",
-    "corp-semantic-release": "git+https://github.com/mmpro/corp-semantic-release.git",
-    "cz-customizable": "git+https://github.com/mmpro/cz-customizable.git",
-    "eslint": "6.x",
-    "expect": "^24.x",
+    "ac-semantic-release": "^0.1.4",
+    "eslint": "7.x",
+    "expect": "^26.x",
     "ioredis": "^4.14.x",
-    "mocha": "^6.2.x",
-    "mocha-jenkins-reporter": "github:mmpro/mocha-jenkins-reporter",
-    "mocha-junit-reporter": "^1.23.x"
+    "mocha": "^7.x",
+    "mocha-jenkins-reporter": "github:mmpro/mocha-jenkins-reporter"
   },
   "scripts": {
     "test": "mocha --reporter spec",
-    "test-jenkins": "JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter --reporter-options junit_report_name='ByteConverter'"
+    "test-jenkins": "JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter --reporter-options junit_report_name='AC-SES'"
   },
   "engines": {
-    "node": ">=8.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    },
-    "cz-customizable": {
-      "config": ".czConfig.js"
-    }
+    "node": ">=10.0.0"
   }
 }

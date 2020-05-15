@@ -3,7 +3,7 @@ const async = require('async')
 const aws = require('aws-sdk')
 
 const crypto = require('crypto')
-const uuidV4 = require('uuid/v4')
+const { v4: uuidV4 } = require('uuid')
 
 const quotedPrintable = require('quoted-printable')
 const utf8 = require('utf8')
