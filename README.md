@@ -25,6 +25,10 @@ let email = {
       address: 'john.doe@admiralcloud.com',
       name: 'John Doe' // optional
     },
+    replyTo: [{ // optional
+      name: 'Jane Doe',
+      address: 'jane.doe@admiralcloud.com'
+    }],
     subject: 'This is my subject',
     text: 'This is my message', // optional if you send html. It is good practice to always send a text
     html: 'This is my <b>message</b>' // optional
