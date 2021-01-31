@@ -7,19 +7,19 @@
   "version": "1.2.0",
   "dependencies": {
     "async": "^3.2.0",
-    "aws-sdk": "^2.677.0",
-    "lodash": "^4.17.15",
+    "aws-sdk": "^2.834.0",
+    "lodash": "^4.17.20",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
     "uuid": "^8.x"
   },
   "devDependencies": {
-    "ac-semantic-release": "^0.1.4",
+    "ac-semantic-release": "^0.2.5",
     "eslint": "7.x",
     "expect": "^26.x",
-    "ioredis": "^4.14.x",
-    "mocha": "^7.x",
-    "mocha-jenkins-reporter": "github:mmpro/mocha-jenkins-reporter"
+    "ioredis": "^4.19.x",
+    "mocha": "^8.x",
+    "mocha-jenkins-reporter": "0.4.5"
   },
   "scripts": {
     "test": "mocha --reporter spec",
