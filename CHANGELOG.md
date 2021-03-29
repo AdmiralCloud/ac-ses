@@ -1,3 +1,18 @@
+<a name="1.2.1"></a>
+
+## [1.2.1](https://github.com/mmpro/ac-ses/compare/v1.2.0..v1.2.1) (2021-03-29 05:38:36)
+
+
+### Bug Fix
+
+* **App:** Typo fix blockTime and rediKey for mail helpers | MP | [f8fef9de2ee68976f2f3b8fdc58b2bfdfb23f9c4](https://github.com/mmpro/ac-ses/commit/f8fef9de2ee68976f2f3b8fdc58b2bfdfb23f9c4)    
+Make sure to use blockTime, not blocktime. Also allow parameter redisKey for informXXX functions.
+### Chores
+
+* **App:** Updated packages | MP | [a85604422822636d5b09941f8b8e7366e2318115](https://github.com/mmpro/ac-ses/commit/a85604422822636d5b09941f8b8e7366e2318115)    
+Updated packages
+* **App:** Updated packages | MP | [409c1f36ac4b4452992f0ce6873cabd81efcbb27](https://github.com/mmpro/ac-ses/commit/409c1f36ac4b4452992f0ce6873cabd81efcbb27)    
+Updated packages
 <a name="1.2.0"></a>
  
 # [1.2.0](https://github.com/mmpro/ac-ses/compare/v1.1.10..v1.2.0) (2020-05-15 05:48:09)

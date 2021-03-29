@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": "mmpro/ac-ses",
   "homepage": "https://www.admiralcloud.com",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dependencies": {
     "async": "^3.2.0",
     "aws-sdk": "^2.874.0",
