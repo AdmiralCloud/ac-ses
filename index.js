@@ -108,7 +108,7 @@ const acses = function() {
       { field: 'html', type: _.isString },
       // OPTIONS
       { field: 'replyTo', type: _.isArray },
-      { field: 'attachments', type: _.isArray }
+      { field: 'attachments', type: _.isArray },
     ]
 
     _.some(fieldCheck, (field) => {
@@ -223,7 +223,8 @@ const acses = function() {
       to: [securityRecipient],
       subject: params.subject,
       text: params.text,
-      blockTime: _.get(params, 'blocktime', defaultBlockTime)
+      blockTime: _.get(params, 'blockTime', defaultBlockTime),
+      redisKey: _.get(params, 'redisKey')
     }
     if (_.isFunction(cb)) sendEmail(message, cb)
     else sendEmail(message)
@@ -242,7 +243,8 @@ const acses = function() {
       to: [supportRecipient],
       subject: params.subject,
       text: params.text,
-      blockTime: _.get(params, 'blocktime', defaultBlockTime)
+      blockTime: _.get(params, 'blockTime', defaultBlockTime),
+      redisKey: _.get(params, 'redisKey')
     }
     if (_.isFunction(cb)) sendEmail(message, cb)
     else sendEmail(message)
@@ -261,7 +263,8 @@ const acses = function() {
       to: [operationsRecipient],
       subject: params.subject,
       text: params.text,
-      blockTime: _.get(params, 'blocktime', defaultBlockTime)
+      blockTime: _.get(params, 'blockTime', defaultBlockTime),
+      redisKey: _.get(params, 'redisKey')
     }
     if (_.isFunction(cb)) sendEmail(message, cb)
     else sendEmail(message)
