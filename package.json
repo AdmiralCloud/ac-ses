@@ -7,8 +7,8 @@
   "version": "1.2.0",
   "dependencies": {
     "async": "^3.2.0",
-    "aws-sdk": "^2.834.0",
-    "lodash": "^4.17.20",
+    "aws-sdk": "^2.874.0",
+    "lodash": "^4.17.21",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
     "uuid": "^8.x"
@@ -17,7 +17,7 @@
     "ac-semantic-release": "^0.2.5",
     "eslint": "7.x",
     "expect": "^26.x",
-    "ioredis": "^4.19.x",
+    "ioredis": "^4.24.5",
     "mocha": "^8.x",
     "mocha-jenkins-reporter": "0.4.5"
   },
