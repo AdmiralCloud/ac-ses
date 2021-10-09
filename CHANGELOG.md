@@ -1,3 +1,12 @@
+<a name="1.2.2"></a>
+
+## [1.2.2](https://github.com/admiralcloud/ac-ses/compare/v1.2.1..v1.2.2) (2021-10-09 17:45:18)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [dac58e153751bffa44ddb05731f742707c9cebc7](https://github.com/admiralcloud/ac-ses/commit/dac58e153751bffa44ddb05731f742707c9cebc7)    
+Package updates
 <a name="1.2.1"></a>
 
 ## [1.2.1](https://github.com/mmpro/ac-ses/compare/v1.2.0..v1.2.1) (2021-03-29 05:38:36)
