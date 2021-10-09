@@ -1,6 +1,6 @@
 module.exports = {
   repository: {
-    url: 'https://github.com/mmpro/ac-ses'
+    url: 'https://github.com/admiralcloud/ac-ses'
   },
   changelogFile: __dirname + '/CHANGELOG.md',
   sections: [

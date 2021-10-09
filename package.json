@@ -1,25 +1,25 @@
 {
   "name": "ac-ses",
-  "author": "Mark Poepping (https://www.mmpro.de)",
+  "author": "Mark Poepping (https://www.admiralcloud.com)",
   "license": "MIT",
-  "repository": "mmpro/ac-ses",
+  "repository": "admiralcloud/ac-ses",
   "homepage": "https://www.admiralcloud.com",
   "version": "1.2.1",
   "dependencies": {
-    "async": "^3.2.0",
-    "aws-sdk": "^2.874.0",
+    "async": "^3.2.1",
+    "aws-sdk": "^2.1004.0",
     "lodash": "^4.17.21",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
     "uuid": "^8.x"
   },
   "devDependencies": {
-    "ac-semantic-release": "^0.2.5",
+    "ac-semantic-release": "^0.2.7",
     "eslint": "7.x",
-    "expect": "^26.x",
-    "ioredis": "^4.24.5",
-    "mocha": "^8.x",
-    "mocha-jenkins-reporter": "0.4.5"
+    "expect": "^27.x",
+    "ioredis": "^4.27.10",
+    "mocha": "^9.x",
+    "mocha-jenkins-reporter": "0.4.7"
   },
   "scripts": {
     "test": "mocha --reporter spec",
