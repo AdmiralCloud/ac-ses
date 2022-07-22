@@ -1,3 +1,18 @@
+<a name="1.2.3"></a>
+
+## [1.2.3](https://github.com/admiralcloud/ac-ses/compare/v1.2.2..v1.2.3) (2022-07-22 05:34:50)
+
+
+### Bug Fix
+
+* **App:** Package update | MP | [236062a467063f128394757e9f8e08562591416e](https://github.com/admiralcloud/ac-ses/commit/236062a467063f128394757e9f8e08562591416e)    
+Package update  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
+### Chores
+
+* **App:** Updated gitignore | MP | [d545d8c49202a68737ee0723db629ddd2d071ac7](https://github.com/admiralcloud/ac-ses/commit/d545d8c49202a68737ee0723db629ddd2d071ac7)    
+Ignore vscode settings  
+Related issues: [/issues#undefined](https://github.com//issues/undefined)
 <a name="1.2.2"></a>
 
 ## [1.2.2](https://github.com/admiralcloud/ac-ses/compare/v1.2.1..v1.2.2) (2021-10-09 17:45:18)
