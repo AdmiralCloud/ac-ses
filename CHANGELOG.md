@@ -1,3 +1,28 @@
+<a name="1.2.4"></a>
+
+## [1.2.4](https://github.com/admiralcloud/ac-ses/compare/v1.2.3..v1.2.4) (2023-01-31 11:26:12)
+
+
+### Bug Fix
+
+* **App:** Add debug mode for SES headers | MP | [b11e0374c5956236e80f4b81d9895ba9fd5916f3](https://github.com/admiralcloud/ac-ses/commit/b11e0374c5956236e80f4b81d9895ba9fd5916f3)    
+Add debug mode for SES headers  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Tests
+
+* **App:** Fixed tests after package updates | MP | [ba0a41496ffa202c9bac3d7fbde5a7c4b542d24b](https://github.com/admiralcloud/ac-ses/commit/ba0a41496ffa202c9bac3d7fbde5a7c4b542d24b)    
+Fixed tests after package updates  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Updated packages | MP | [f3affc2c748a2ed6cb96eaad6a31fae2af646d37](https://github.com/admiralcloud/ac-ses/commit/f3affc2c748a2ed6cb96eaad6a31fae2af646d37)    
+Updated packages  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Updated ESLint setting | MP | [a5dd3adfa10ef02ca1c886a0485d324b6ac73aee](https://github.com/admiralcloud/ac-ses/commit/a5dd3adfa10ef02ca1c886a0485d324b6ac73aee)    
+Updated ESLint setting to ECMA 2021  
+Related issues: [undefined/undefined#master](undefined/browse/master)
 <a name="1.2.3"></a>
 
 ## [1.2.3](https://github.com/admiralcloud/ac-ses/compare/v1.2.2..v1.2.3) (2022-07-22 05:34:50)
