@@ -109,6 +109,7 @@ const acses = function() {
       // OPTIONS
       { field: 'replyTo', type: _.isArray },
       { field: 'attachments', type: _.isArray },
+      { field: 'debug', type: _.isBoolean },
     ]
 
     _.some(fieldCheck, (field) => {
@@ -155,6 +156,9 @@ const acses = function() {
         }
 
         raw += 'Subject: ' + (useEnvironmentPrefixInSubject ? (_.toUpper(environment) + ' | ') : '') + params.subject + '\n'
+        if (params?.debug) {
+          console.log('ACSES | DEBUG Headers | %j', raw.split('/n'))
+        }
 
         // announce multipart/mixed
         raw += 'Mime-Version: 1.0\n'
