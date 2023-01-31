@@ -1,7 +1,8 @@
 const fs = require('fs')
 
-const expect = require('expect')
 const acses = require('../index')
+
+const expect = require('chai').expect 
 
 var Redis = require('ioredis')
 var redis = new Redis({
@@ -15,7 +16,7 @@ describe('CHECKING ERRORS', function () {
   it('Send email without init', function(done) {
     let params = testConfig.email
     acses.sendEmail(params, (err) => {
-      expect(err).toEqual({ message: 'pleaseUseInitBeforeSendingEmail' })
+      expect(err).eql({ message: 'pleaseUseInitBeforeSendingEmail' })
       return done()
     })
   })
@@ -31,8 +32,8 @@ describe('TESTING EMAIL', function () {
     let params = testConfig.email
     acses.sendEmail(params, (err, result) => {
       if (err) return done(err)
-      expect(result).toHaveProperty('ResponseMetadata')
-      expect(result).toHaveProperty('MessageId')
+      expect(result).to.have.property('ResponseMetadata')
+      expect(result).to.have.property('MessageId')
       return done()
     })
   })
@@ -45,8 +46,8 @@ describe('TESTING EMAIL', function () {
       params.html = data.toString()
       acses.sendEmail(params, (err, result) => {
         if (err) return done(err)
-        expect(result).toHaveProperty('ResponseMetadata')
-        expect(result).toHaveProperty('MessageId')
+        expect(result).to.have.property('ResponseMetadata')
+        expect(result).to.have.property('MessageId')
         return done()
       })
     })
@@ -56,8 +57,8 @@ describe('TESTING EMAIL', function () {
     let params = testConfig.securityEmail
     acses.informSecurity(params, (err, result) => {
       if (err) return done(err)
-      expect(result).toHaveProperty('ResponseMetadata')
-      expect(result).toHaveProperty('MessageId')
+      expect(result).to.have.property('ResponseMetadata')
+      expect(result).to.have.property('MessageId')
       return done()
     })
   })
@@ -66,8 +67,8 @@ describe('TESTING EMAIL', function () {
     let params = testConfig.supportEmail
     acses.informSecurity(params, (err, result) => {
       if (err) return done(err)
-      expect(result).toHaveProperty('ResponseMetadata')
-      expect(result).toHaveProperty('MessageId')
+      expect(result).to.have.property('ResponseMetadata')
+      expect(result).to.have.property('MessageId')
       return done()
     })
   })
@@ -89,8 +90,8 @@ describe('TESTING BLOCK TIME', function() {
     params.blockTime = 10
     acses.sendEmail(params, (err, result) => {
       if (err) return done(err)
-      expect(result).toHaveProperty('ResponseMetadata')
-      expect(result).toHaveProperty('MessageId')
+      expect(result).to.have.property('ResponseMetadata')
+      expect(result).to.have.property('MessageId')
       return done()
     })
   })
@@ -99,7 +100,7 @@ describe('TESTING BLOCK TIME', function() {
     let params = testConfig.email
     acses.sendEmail(params, (err, result) => {
       if (err) return done(err)
-      expect(result).toBeUndefined()
+      expect(result).to.be.undefined
       return done()
     })
   })
@@ -114,8 +115,8 @@ describe('TESTING BLOCK TIME', function() {
     params.subject = 'Test after block time'
     acses.sendEmail(params, (err, result) => {
       if (err) return done(err)
-      expect(result).toHaveProperty('ResponseMetadata')
-      expect(result).toHaveProperty('MessageId')
+      expect(result).to.have.property('ResponseMetadata')
+      expect(result).to.have.property('MessageId')
       return done()
     })
   })
