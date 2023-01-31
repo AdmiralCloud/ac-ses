@@ -7,25 +7,26 @@
   "version": "1.2.3",
   "dependencies": {
     "async": "^3.2.4",
-    "aws-sdk": "^2.1180.0",
+    "aws-sdk": "^2.1305.0",
     "lodash": "^4.17.21",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
-    "uuid": "^8.x"
+    "uuid": "^9.x"
   },
   "devDependencies": {
-    "ac-semantic-release": "^0.3.3",
-    "eslint": "7.x",
-    "expect": "^27.x",
-    "ioredis": "^4.28.5",
-    "mocha": "^9.2.2",
-    "mocha-jenkins-reporter": "0.4.7"
+    "ac-semantic-release": "^0.3.4",
+    "chai": "^4.3.7",
+    "eslint": "8.x",
+    "ioredis": "^5.3.0",
+    "expect": "^29.4.1",
+    "mocha": "^10.2.0",
+    "mocha-jenkins-reporter": "0.4.8"
   },
   "scripts": {
     "test": "mocha --reporter spec",
     "test-jenkins": "JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter --reporter-options junit_report_name='AC-SES'"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=16.0.0"
   }
 }
