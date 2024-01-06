@@ -6,19 +6,17 @@
   "homepage": "https://www.admiralcloud.com",
   "version": "1.2.4",
   "dependencies": {
-    "async": "^3.2.4",
-    "aws-sdk": "^2.1305.0",
+    "@aws-sdk/client-ses": "^3.485.0",
     "lodash": "^4.17.21",
     "quoted-printable": "^1.0.1",
     "utf8": "^3.0.0",
     "uuid": "^9.x"
   },
   "devDependencies": {
-    "ac-semantic-release": "^0.3.4",
-    "chai": "^4.3.7",
+    "ac-semantic-release": "^0.4.2",
+    "chai": "^4.4.0",
     "eslint": "8.x",
-    "ioredis": "^5.3.0",
-    "expect": "^29.4.1",
+    "expect": "^29.7.0",
     "mocha": "^10.2.0",
     "mocha-jenkins-reporter": "0.4.8"
   },
