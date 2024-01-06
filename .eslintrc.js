@@ -20,7 +20,7 @@ const config = {
     it: true
   },
   'parserOptions': {
-    'ecmaVersion': 2021
+    'ecmaVersion': 2022
 },
 }
 
