@@ -1,18 +1,19 @@
 # AC SES
 A helper tool to send emails via AWS SES.  
-It also support "convenience" calls, to inform groups (e.g. support with informSupport function)
+
+## BREAKING CHANGES VERSION 2
++ use async/await
++ no more support for blocktime - use your application logic instead
++ no more support for group messages - use your application logid instead
 
 ## Usage
-
 ```
 const acses = require('ac-ses')
 
 // Min requirements
 acses.init({ 
-  aws: {
-    accessKeyId: 'xxx',
-    secretAccessKey: 'xxx',
-    region: 'eu-central-1'  
+  defaultSender: {
+    address: 'sender@domain.com
   }
 })
 
@@ -34,47 +35,35 @@ let email = {
     html: 'This is my <b>message</b>' // optional
 }
 
-acses.sendEmail(email, (err, result) => {
-  console.log(err, result)
-  // More infos regarding the result:
-  // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property
-})
+await acses.sendEmail(email)
+// -> Response
+{
+  '$metadata': {
+    httpStatusCode: 200,
+    requestId: '123466-557d-4a75-8d5c-d71e336963ec',
+    extendedRequestId: undefined,
+    cfId: undefined,
+    attempts: 1,
+    totalRetryDelay: 0
+  },
+  MessageId: '12356-2c4f41dd-6f2b-402e-9c26-123355-000000'
+}
 ```
 
 Full setup
-
 ```
 acses.init({ 
-  aws: {
-    accessKeyId: 'xxx',
-    secretAccessKey: 'xxx',
-    region: 'eu-central-1'  
-  },
-  redis: REDISINSTANCE,
-  defaultBlockTime: BLOCKTIME FOR SAME MESSAGE,
   defaultSender: {
     address: 'defaultSender@admiralcloud.com',
     name: 'AdmiralCloud Sender'
   },
-  securityRecipient: {
-    address: 'defaultSecurityRecipient@admiralcloud.com',
-    name: 'AdmiralCloud Security'
-  },
-  supportRecipient: {
-    address:    address: 'defaultSupportRecipient@admiralcloud.com',
-    name: 'AdmiralCloud Support'
-  },
   environment: ENVIRONMENT // defaults to proces.env.NODE_ENV,
   useEnvironmentPrefixInSubject: TRUE|FALSE // defaults to TRUE - prefixes e-mail subject with environment to avoid confusion during development
 })
-
-
 ```
 
 ## Links
 - [Website](https://www.admiralcloud.com/)
-- [Twitter (@admiralcloud)](https://twitter.com/admiralcloud)
-- [Facebook](https://www.facebook.com/MediaAssetManagement/)
 
 ## License
-[MIT License](https://opensource.org/licenses/MIT) Copyright © 2009-present, AdmiralCloud, Mark Poepping
+[MIT License](https://opensource.org/licenses/MIT) Copyright © 2009-present, AdmiralCloud AG, Mark Poepping
