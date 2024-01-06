@@ -1,3 +1,25 @@
+<a name="2.0.0"></a>
+ 
+# [2.0.0](https://github.com/admiralcloud/ac-ses/compare/v1.2.4..v2.0.0) (2024-01-06 09:43:38)
+
+
+### Bug Fix
+
+* **App:** Use async/await and remove some functions | MP | [7f9c4aee85e062dfc08fed09c1f4bf08d37e3673](https://github.com/admiralcloud/ac-ses/commit/7f9c4aee85e062dfc08fed09c1f4bf08d37e3673)    
+Package now uses async/await. No more support for blocktime and group messages - use your application logic for that.  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Some minor updates | MP | [6cdc1d8f9927d5926836b1128e3f84b8ebb1c0f0](https://github.com/admiralcloud/ac-ses/commit/6cdc1d8f9927d5926836b1128e3f84b8ebb1c0f0)    
+Some minor updates  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Updated packages | MP | [21369161d02172ccba704d286dca59b5e0dbbde5](https://github.com/admiralcloud/ac-ses/commit/21369161d02172ccba704d286dca59b5e0dbbde5)    
+Updated packages  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+## BREAKING CHANGES
+* **App:** See README breaking changes for version 2
 <a name="1.2.4"></a>
 
 ## [1.2.4](https://github.com/admiralcloud/ac-ses/compare/v1.2.3..v1.2.4) (2023-01-31 11:26:12)
