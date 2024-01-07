@@ -4,7 +4,7 @@ const { v4: uuidV4 } = require('uuid')
 const quotedPrintable = require('quoted-printable')
 const utf8 = require('utf8')
 
-const { SESClient, SendRawEmailCommand } = require("@aws-sdk/client-ses")
+const { SESv2Client, SendEmailCommand } = require("@aws-sdk/client-sesv2")
 
 const acses = () => {
   let ses
@@ -15,7 +15,10 @@ const acses = () => {
   let useEnvironmentPrefixInSubject = environment !== 'production'
 
   const init = function(options) {
-    ses = new SESClient()
+    const awsConfig = {
+      region: _.get(options, 'region', 'eu-central-1')
+    }
+    ses = new SESv2Client(awsConfig)
     if (_.get(options, 'testMode')) {
       testMode = _.get(options, 'testMode')
     }
@@ -141,12 +144,6 @@ const acses = () => {
       })
       raw += '--' + boundaryMixed + '--\n'
     }
-
-    const rawParams = {
-      RawMessage: { /* required */
-        Data: Buffer.from(raw)
-      }
-    }
     
     if (testMode) {
       // return fake response, but do not send message
@@ -161,7 +158,13 @@ const acses = () => {
       }
       return mockResponse
     }
-    const command = new SendRawEmailCommand(rawParams)
+    const command = new SendEmailCommand({
+      Content: {
+        Raw: {
+          Data: Buffer.from(raw)
+        }
+      }
+    })
     const response = await ses.send(command)
     return response
   }
