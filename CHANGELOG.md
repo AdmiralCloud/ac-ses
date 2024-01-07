@@ -1,3 +1,18 @@
+<a name="2.0.1"></a>
+
+## [2.0.1](https://github.com/admiralcloud/ac-ses/compare/v2.0.0..v2.0.1) (2024-01-07 08:57:43)
+
+
+### Bug Fix
+
+* **App:** Minor improvements | MP | [e0360e94b9de2b1292c73ef6ac23962186a50d49](https://github.com/admiralcloud/ac-ses/commit/e0360e94b9de2b1292c73ef6ac23962186a50d49)    
+Set region during init (default eu-central-1). Use SESv2Client.  
+Related issues: [undefined/undefined#master](undefined/browse/master)
+### Chores
+
+* **App:** Updated packages | MP | [1d6b84ff958787d4fea8d23d9700f2f9886299bf](https://github.com/admiralcloud/ac-ses/commit/1d6b84ff958787d4fea8d23d9700f2f9886299bf)    
+Updated packages  
+Related issues: [undefined/undefined#master](undefined/browse/master)
 <a name="2.0.0"></a>
  
 # [2.0.0](https://github.com/admiralcloud/ac-ses/compare/v1.2.4..v2.0.0) (2024-01-06 09:43:38)
