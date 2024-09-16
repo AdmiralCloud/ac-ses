@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": "admiralcloud/ac-ses",
   "homepage": "https://www.admiralcloud.com",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.651.1",
     "lodash": "^4.17.21",
