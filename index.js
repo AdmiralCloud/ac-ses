@@ -115,7 +115,7 @@ const acses = () => {
 
     raw += 'Subject: ' + (useEnvironmentPrefixInSubject ? (_.toUpper(environment) + ' | ') : '') + params.subject + '\n'
     if (params?.debug) {
-      console.log('ACSES | DEBUG Headers | %j', raw.split('/n'))
+      warn.log('ACSES | DEBUG Headers | %j', raw.split('/n'))
     }
 
     // announce multipart/mixed
