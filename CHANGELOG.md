@@ -1,3 +1,20 @@
+
+## [2.0.3](https://github.com/admiralcloud/ac-ses/compare/v2.0.2..v2.0.3) (2025-05-05 17:49:00)
+
+
+### Bug Fix
+
+* **App:** Use ACError class | MP | [43ab8d460541c151764df858067b955af81bd51c](https://github.com/admiralcloud/ac-ses/commit/43ab8d460541c151764df858067b955af81bd51c)    
+Use ACError class  
+Related issues:
+### Chores
+
+* **App:** Updated packages | MP | [fedcbc13d147597e4e1a36f63a17822583c0bfbb](https://github.com/admiralcloud/ac-ses/commit/fedcbc13d147597e4e1a36f63a17822583c0bfbb)    
+Updated packages  
+Related issues:
+* **App:** Updated packages | MP | [0267ba27664bb11e59413a1d1effce5b1db916e4](https://github.com/admiralcloud/ac-ses/commit/0267ba27664bb11e59413a1d1effce5b1db916e4)    
+Updated packages  
+Related issues:
 <a name="2.0.2"></a>
 
 ## [2.0.2](https://github.com/admiralcloud/ac-ses/compare/v2.0.1..v2.0.2) (2024-09-16 08:11:27)
