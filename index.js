@@ -5,6 +5,7 @@ const quotedPrintable = require('quoted-printable')
 const utf8 = require('utf8')
 
 const { SESv2Client, SendEmailCommand } = require("@aws-sdk/client-sesv2")
+const { ACError } = require('ac-custom-error')
 
 const acses = () => {
   let ses
@@ -45,8 +46,8 @@ const acses = () => {
    * @param {*} params
    */
   const prepareEmailAddress = ({ address, name }) => {
-    if (!address) throw new Error({ message: 'ACSES.prepareEmailAddress - address_required' })
-    if (!_.isString(address)) throw new Error({ message: 'ACSES.prepareEmailAddress - address_mustBeAString' })
+    if (!address) throw new ACError('ACSES.prepareEmailAddress - address_required')
+    if (!_.isString(address)) throw new ACError('ACSES.prepareEmailAddress - address_mustBeAString')
     let email = name ? `${name} <${address}>` : address
     return email
   }
@@ -70,7 +71,7 @@ const acses = () => {
    *
    */
   const sendEmail = async(params) => {
-    if (!_.isObject(ses)) throw new Error('pleaseUseInitBeforeSendingEmail')
+    if (!_.isObject(ses)) throw new ACError('pleaseUseInitBeforeSendingEmail')
     if (!_.get(params, 'from') && defaultSender) _.set(params, 'from', defaultSender)
     const fieldCheck = [
       { field: 'from', type: _.isPlainObject, required: true },
@@ -87,8 +88,8 @@ const acses = () => {
     ]
 
     _.some(fieldCheck, (field) => {
-      if (field.required && !_.has(params, field.field)) throw new Error(field.field + '_required')
-      if (_.get(params, field.field) && !field.type(_.get(params, field.field))) throw new Error(field.field + '_typeInvalid')
+      if (field.required && !_.has(params, field.field)) throw new ACError(field.field + '_required')
+      if (_.get(params, field.field) && !field.type(_.get(params, field.field))) throw new ACError(field.field + '_typeInvalid')
     })
 
     const boundaryMixed = uuidV4()
