@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": "admiralcloud/ac-ses",
   "homepage": "https://www.admiralcloud.com",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.974.0",
     "ac-custom-error": "^1.0.5",
@@ -21,7 +21,7 @@
     "mocha": "^11.7.5"
   },
   "scripts": {
-    "test": "mocha --reporter spec" 
+    "test": "mocha --reporter spec"
   },
   "engines": {
     "node": ">=20.0.0"
