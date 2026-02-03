@@ -1,5 +1,8 @@
+// List packages for minor updates
+const minorUpdatePackages = ['chai', 'uuid']
+
 module.exports = {
-  target: (dependencyName, parsedVersion) => {
-    return dependencyName === 'chai' ? 'minor' : 'latest'
+  target: packageName => {
+    return minorUpdatePackages.includes(packageName) ? 'minor' : 'latest'
   }
 }
