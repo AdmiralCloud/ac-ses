@@ -1,4 +1,13 @@
 
+## [2.0.6](https://github.com/admiralcloud/ac-ses/compare/v2.0.5..v2.0.6) (2026-02-03 08:21:52)
+
+
+### Bug Fix
+
+* **App:** Package updates | MP | [a92285654e98cd907dd8fc649a47720333aa889e](https://github.com/admiralcloud/ac-ses/commit/a92285654e98cd907dd8fc649a47720333aa889e)    
+Package updates  
+Related issues:
+
 ## [2.0.5](https://github.com/admiralcloud/ac-ses/compare/v2.0.4..v2.0.5) (2026-01-23 13:47:04)
 
 
