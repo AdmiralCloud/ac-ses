@@ -1,6 +1,8 @@
 # AC SES
 A helper tool to send emails via AWS SES.  
 
+[![CodeQL](https://github.com/AdmiralCloud/ac-ses/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AdmiralCloud/ac-ses/actions/workflows/github-code-scanning/codeql)
+
 ## BREAKING CHANGES VERSION 2
 + use async/await
 + no more support for blocktime - use your application logic instead
