@@ -28,3 +28,4 @@ test/testConfig.js
 ########################
 .jenkins.conf
 debug*
+.claude
