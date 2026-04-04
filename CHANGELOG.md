@@ -1,3 +1,30 @@
+## [2.0.9](https://github.com/admiralcloud/ac-ses/compare/v2.0.8..v2.0.9) (2026-04-04 10:57:03)
+
+
+### Bug Fix
+
+
+* **App:** Package updates | MP | [1537e74db415f5ee26244227c67fea8193d59646](https://github.com/admiralcloud/ac-ses/commit/1537e74db415f5ee26244227c67fea8193d59646)    
+Package updates  
+Related issues:
+### Tests
+
+
+* **App:** Fixed tests | MP | [0458d1360ff563bc4b47e1a5c49e5d944236a796](https://github.com/admiralcloud/ac-ses/commit/0458d1360ff563bc4b47e1a5c49e5d944236a796)    
+Fixed tests  
+Related issues:
+### Documentation
+
+
+* **App:** Added badge | MP | [bbe44fd42bbbd29b05fb3a52e59552649ef2f8eb](https://github.com/admiralcloud/ac-ses/commit/bbe44fd42bbbd29b05fb3a52e59552649ef2f8eb)    
+Added CI badge  
+Related issues:
+### Chores
+
+
+* **App:** Added Github actions | MP | [3b3888b843f859024e73969317d5e8e38ed12cb5](https://github.com/admiralcloud/ac-ses/commit/3b3888b843f859024e73969317d5e8e38ed12cb5)    
+Added Github actions  
+Related issues:
 
 ## [2.0.8](https://github.com/admiralcloud/ac-ses/compare/v2.0.7..v2.0.8) (2026-03-21 11:25:41)
 
