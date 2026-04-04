@@ -1,7 +1,7 @@
 # AC SES
 A helper tool to send emails via AWS SES.  
 
-[![CodeQL](https://github.com/AdmiralCloud/ac-ses/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AdmiralCloud/ac-ses/actions/workflows/github-code-scanning/codeql)
+[![Node.js CI](https://github.com/AdmiralCloud/ac-ses/actions/workflows/node.js.yml/badge.svg)](https://github.com/AdmiralCloud/ac-ses/actions/workflows/node.js.yml) [![CodeQL](https://github.com/AdmiralCloud/ac-ses/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/AdmiralCloud/ac-ses/actions/workflows/github-code-scanning/codeql)
 
 ## BREAKING CHANGES VERSION 2
 + use async/await
