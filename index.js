@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const { v4: uuidV4 } = require('uuid')
+const { randomUUID } = require('crypto')
 
 const quotedPrintable = require('quoted-printable')
 const utf8 = require('utf8')
@@ -92,8 +92,8 @@ const acses = () => {
       if (_.get(params, field.field) && !field.type(_.get(params, field.field))) throw new ACError(field.field + '_typeInvalid')
     })
 
-    const boundaryMixed = uuidV4()
-    const boundaryAlternative = uuidV4()
+    const boundaryMixed = randomUUID()
+    const boundaryAlternative = randomUUID()
     const encoding = _.get(params, 'encoding', 'quoted-printable')
 
     // sendRawMessage
@@ -151,10 +151,10 @@ const acses = () => {
       let mockResponse = {
         '$metadata': {
           httpStatusCode: 200,
-          requestId: uuidV4(),
+          requestId: randomUUID(),
           attempts: 1
         },
-        MessageId: Math.random().toString(36) + '-' + uuidV4() + '-000000',
+        MessageId: Math.random().toString(36) + '-' + randomUUID() + '-000000',
         testMode: true
       }
       return mockResponse
