@@ -1,3 +1,12 @@
+## [2.0.11](https://github.com/admiralcloud/ac-ses/compare/v2.0.10..v2.0.11) (2026-04-24 19:02:32)
+
+
+### Bug Fix
+
+
+* **App:** Package updates | MP | [62a1d317bcd52357d91b0308fc6cb0c05d70b0d4](https://github.com/admiralcloud/ac-ses/commit/62a1d317bcd52357d91b0308fc6cb0c05d70b0d4)    
+Replaced uuid package with built-in function  
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ## [2.0.10](https://github.com/admiralcloud/ac-ses/compare/v2.0.9..v2.0.10) (2026-04-17 07:54:27)
 
 
