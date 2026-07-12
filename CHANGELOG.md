@@ -1,3 +1,11 @@
+## [2.0.15](https://github.com/admiralcloud/ac-ses/compare/v2.0.14..v2.0.15) (2026-07-12 07:27:19)
+
+
+### Bug Fix
+
+
+* **App:** Package updates | MP | [b026e062c8715fd30dea0e2b39f368bbbd9c2fb3](https://github.com/admiralcloud/ac-ses/commit/b026e062c8715fd30dea0e2b39f368bbbd9c2fb3)    
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ## [2.0.14](https://github.com/admiralcloud/ac-ses/compare/v2.0.13..v2.0.14) (2026-06-22 15:08:40)
 
 
